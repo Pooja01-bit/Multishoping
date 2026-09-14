@@ -1,46 +1,46 @@
 import { products } from "../utils/products";
 
-const API_BASE_URL = "http://localhost:5000/api";
+const PHP_API_BASE = "http://localhost:5000/api";
 
 export const fetchProducts = async () => {
   try {
-    const res = await fetch(`${API_BASE_URL}/products`);
+    const res = await fetch(`${PHP_API_BASE}/products.php`);
     const data = await res.json();
-    if (data.success && data.data.length > 0) {
+    if (data.success && data.data && data.data.length > 0) {
       return data.data;
     }
   } catch (error) {
-    console.log("Backend offline, using fallback data");
+    console.log("PHP/MySQL API offline, using fallback catalog data");
   }
   return products;
 };
 
 export const fetchProductById = async (id) => {
   try {
-    const res = await fetch(`${API_BASE_URL}/products/${id}`);
+    const res = await fetch(`${PHP_API_BASE}/products.php?id=${id}`);
     const data = await res.json();
-    if (data.success) {
+    if (data.success && data.data) {
       return data.data;
     }
   } catch (error) {
-    console.log("Backend offline, using fallback product");
+    console.log("PHP/MySQL API offline, using fallback product detail");
   }
   return products.find((item) => item.id === id || item.id === String(id));
 };
 
 export const submitOrder = async (orderData) => {
   try {
-    const res = await fetch(`${API_BASE_URL}/orders/checkout`, {
+    const res = await fetch(`${PHP_API_BASE}/checkout.php`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(orderData),
     });
     const data = await res.json();
-    if (data.success) {
+    if (data.success && data.data) {
       return data.data;
     }
   } catch (error) {
-    console.log("Backend offline, generating fallback order");
+    console.log("PHP/MySQL API offline, generating local fallback order");
   }
   return {
     ...orderData,
