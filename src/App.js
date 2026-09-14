@@ -14,6 +14,7 @@ const Product = lazy(() => import("./pages/Product"));
 const Checkout = lazy(() => import("./pages/Checkout"));
 const OrderSuccess = lazy(() => import("./pages/OrderSuccess"));
 const Orders = lazy(() => import("./pages/Orders"));
+const Wishlist = lazy(() => import("./pages/Wishlist"));
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/shop/:id" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/order-success" element={<OrderSuccess />} />
           <Route path="/orders" element={<Orders />} />

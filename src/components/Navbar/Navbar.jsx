@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 
 const NavBar = () => {
   const { cartList } = useSelector((state) => state.cart);
+  const { wishlist } = useSelector((state) => state.wishlist);
   const { user, isLoggedIn } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -49,7 +50,20 @@ const NavBar = () => {
             />
           </Navbar.Brand>
 
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center me-2">
+            <Link
+              aria-label="Wishlist Page"
+              to="/wishlist"
+              className="cart media-cart me-3 position-relative"
+            >
+              <i className="fa-regular fa-heart fs-4 text-dark"></i>
+              {wishlist.length > 0 && (
+                <span className="badge bg-danger rounded-circle position-absolute top-0 start-100 translate-middle" style={{ fontSize: "10px" }}>
+                  {wishlist.length}
+                </span>
+              )}
+            </Link>
+
             <Link
               aria-label="Go to Cart Page"
               to="/cart"
@@ -100,6 +114,18 @@ const NavBar = () => {
 
               <Nav.Item>
                 <Link
+                  className="navbar-link position-relative"
+                  to="/wishlist"
+                  onClick={() => setExpand(false)}
+                >
+                  <span className="nav-link-label">
+                    Wishlist {wishlist.length > 0 && `(${wishlist.length})`}
+                  </span>
+                </Link>
+              </Nav.Item>
+
+              <Nav.Item>
+                <Link
                   className="navbar-link"
                   to="/orders"
                   onClick={() => setExpand(false)}
@@ -133,8 +159,11 @@ const NavBar = () => {
                       Hi, {user?.name || "User"}
                     </Dropdown.Toggle>
                     <Dropdown.Menu align="end">
+                      <Dropdown.Item as={Link} to="/wishlist">
+                        ❤️ My Wishlist ({wishlist.length})
+                      </Dropdown.Item>
                       <Dropdown.Item as={Link} to="/orders">
-                        My Orders
+                        📦 My Orders
                       </Dropdown.Item>
                       <Dropdown.Divider />
                       <Dropdown.Item onClick={handleLogout}>
@@ -172,4 +201,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
