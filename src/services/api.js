@@ -1,42 +1,55 @@
 import { products } from "../utils/products";
 
-// Simulated API service layer for MultiMart E-Commerce
+const API_BASE_URL = "http://localhost:5000/api";
+
 export const fetchProducts = async () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(products);
-    }, 300);
-  });
+  try {
+    const res = await fetch(`${API_BASE_URL}/products`);
+    const data = await res.json();
+    if (data.success && data.data.length > 0) {
+      return data.data;
+    }
+  } catch (error) {
+    console.log("Backend offline, using fallback data");
+  }
+  return products;
 };
 
 export const fetchProductById = async (id) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const product = products.find((item) => item.id === id || item.id === String(id));
-      if (product) {
-        resolve(product);
-      } else {
-        reject(new Error("Product not found"));
-      }
-    }, 200);
-  });
+  try {
+    const res = await fetch(`${API_BASE_URL}/products/${id}`);
+    const data = await res.json();
+    if (data.success) {
+      return data.data;
+    }
+  } catch (error) {
+    console.log("Backend offline, using fallback product");
+  }
+  return products.find((item) => item.id === id || item.id === String(id));
 };
 
 export const submitOrder = async (orderData) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      const createdOrder = {
-        ...orderData,
-        id: "ORD-" + Math.floor(100000 + Math.random() * 900000),
-        status: "Processing",
-        createdAt: new Date().toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        }),
-      };
-      resolve(createdOrder);
-    }, 500);
-  });
+  try {
+    const res = await fetch(`${API_BASE_URL}/orders/checkout`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(orderData),
+    });
+    const data = await res.json();
+    if (data.success) {
+      return data.data;
+    }
+  } catch (error) {
+    console.log("Backend offline, generating fallback order");
+  }
+  return {
+    ...orderData,
+    id: "ORD-" + Math.floor(100000 + Math.random() * 900000),
+    status: "Processing",
+    createdAt: new Date().toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    }),
+  };
 };
-
