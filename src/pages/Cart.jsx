@@ -1,6 +1,7 @@
 import { useEffect } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   addToCart,
   decreaseQty,
@@ -10,25 +11,23 @@ import {
 const Cart = () => {
   const { cartList } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  // middlware to localStorage
+
   const totalPrice = cartList.reduce(
     (price, item) => price + item.qty * item.price,
     0
   );
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    // if(CartItem.length ===0) {
-    //   const storedCart = localStorage.getItem("cartItem");
-    //   setCartItem(JSON.parse(storedCart));
-    // }
   }, []);
+
   return (
     <section className="cart-items">
       <Container>
         <Row className="justify-content-center">
           <Col md={8}>
             {cartList.length === 0 && (
-              <h1 className="no-items product">No Items are add in Cart</h1>
+              <h1 className="no-items product">No Items in Cart</h1>
             )}
             {cartList.map((item) => {
               const productQty = item.price * item.qty;
@@ -77,12 +76,22 @@ const Cart = () => {
             })}
           </Col>
           <Col md={4}>
-            <div className="cart-total">
+            <div className="cart-total p-4 bg-white rounded-3 shadow-sm">
               <h2>Cart Summary</h2>
-              <div className=" d_flex">
+              <div className="d_flex mb-3">
                 <h4>Total Price :</h4>
                 <h3>${totalPrice}.00</h3>
               </div>
+              {cartList.length > 0 && (
+                <Button
+                  as={Link}
+                  to="/checkout"
+                  className="w-100 py-2 fw-bold"
+                  style={{ backgroundColor: "#0f3460", border: "none" }}
+                >
+                  Proceed to Checkout
+                </Button>
+              )}
             </div>
           </Col>
         </Row>
