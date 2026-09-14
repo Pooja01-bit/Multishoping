@@ -1,48 +1,50 @@
-# Maltimart Ecommerce
+# 🛍️ Multishoping - Full-Stack E-Commerce Web Application
 
-## 📌 Live Demo
-https://multimart-ecommerce.onrender.com
+A full-stack, responsive E-Commerce web platform built using **React.js, Redux Toolkit, React-Bootstrap, PHP REST APIs, and MySQL Database**.
 
-## 😎 Features
+---
 
-- Beauty UI similar to ecommerce website
-- Fully responsive and mobile friendly
-- User can add items to cart
-- User can view details of an item
-- User can show total price in cart
-- In Item page user can add quantity of item to cart instead of click add more and more 
+## ✨ Features
 
-## 🚀 What technologies were used?
+- **User Authentication**: Sign In / Sign Up interactive modal state with persistent user sessions.
+- **Product Catalog & Filtering**: Search products by category, title, discount tags, and custom filters.
+- **Wishlist Management**: Real-time Wishlist addition with heart toggle, instant Move-to-Cart, and Buy Now options.
+- **Shopping Cart & Checkout**: Dynamic cart updates, INR (`Rs.`) currency formatting, quantity controls, and structured shipping checkout.
+- **Order History & PDF Invoices**: Order tracking with instant printable PDF invoice generation.
+- **PHP REST API Backend**: Full RESTful backend supporting SQL CRUD operations for products, users, and transactions.
 
-- react.js (create-react-app)
-- react-dom-router
-- react-bootstrap
-- state management using Redux Toolkit
+---
 
-## How can you clone and tweak this project?
+## 🛠️ Tech Stack
 
-From your command line, first clone this repo:
+- **Frontend**: React.js 18, Redux Toolkit, React-Bootstrap, FontAwesome Icons, React Router v6, React-Toastify.
+- **Backend & Database**: PHP 8.2 REST API, MySQL Relational Database (`schema.sql`).
+- **Styling**: Responsive CSS3, Flexbox, Bootstrap 5 grid system.
 
-```
-# Clone this repository
-$ https://github.com/0mar-helal/multimart-react-ecommerce.git
+---
 
-# Go into the repository
-$ cd multimart-react-ecommerce
+## 🚀 How to Run Locally
 
-# Remove current origin repository
-$ git remote remove origin
-
-```
-
-Then you can install the dependencies using NPM:
-
-```
+### 1. Frontend Setup (React.js)
+```bash
 # Install dependencies
-$ npm install
+npm install
 
 # Start development server
-$ npm start
+npm start
 ```
-👨‍💻 Happy coding!
+
+### 2. Backend Setup (PHP REST API)
+```bash
+# Navigate to backend directory
+cd backend
+
+# Start PHP built-in server
+php -S localhost:5000 -t api
+```
+
 ---
+
+## 💻 Author
+Built & maintained by **Pooja Kumari** ([@Pooja01-bit](https://github.com/Pooja01-bit)).
+
