@@ -101,7 +101,7 @@ const ProductCard = ({ title, productItem }) => {
             style={{ backgroundColor: "#0f3460", color: "#fff" }}
             onClick={handleBuyNow}
           >
-            ⚡ Buy Now
+            Buy Now
           </Button>
         </div>
       </div>

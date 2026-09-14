@@ -85,7 +85,7 @@ const Wishlist = () => {
                           style={{ backgroundColor: "#0f3460", border: "none" }}
                           onClick={() => handleBuyNow(item)}
                         >
-                          ⚡ Buy Now
+                          Buy Now
                         </Button>
                       </div>
                     </Card.Body>
