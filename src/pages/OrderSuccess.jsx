@@ -68,7 +68,7 @@ const OrderSuccess = () => {
                         <tr key={item.id}>
                           <td>{item.productName}</td>
                           <td>{item.qty}</td>
-                          <td className="text-end">${item.price * item.qty}.00</td>
+                          <td className="text-end">₹{item.price * item.qty}.00</td>
                         </tr>
                       ))}
                     </tbody>

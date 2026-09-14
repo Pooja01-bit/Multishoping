@@ -202,7 +202,7 @@ const Checkout = () => {
                     className="w-100 py-2 fw-bold"
                     style={{ backgroundColor: "#0f3460", border: "none" }}
                   >
-                    {isSubmitting ? "Processing Order..." : `Confirm & Pay $${totalAmount}.00`}
+                    {isSubmitting ? "Processing Order..." : `Confirm & Pay ₹${totalAmount}.00`}
                   </Button>
                 </Form>
               </Card>
@@ -238,7 +238,7 @@ const Checkout = () => {
                 <hr />
                 <div className="d-flex justify-content-between mb-2">
                   <span>Subtotal:</span>
-                  <span className="fw-bold">${totalAmount}.00</span>
+                  <span className="fw-bold">₹{totalAmount}.00</span>
                 </div>
                 <div className="d-flex justify-content-between mb-2 text-success">
                   <span>Shipping Fee:</span>
@@ -247,7 +247,7 @@ const Checkout = () => {
                 <hr />
                 <div className="d-flex justify-content-between h5 text-dark fw-bold">
                   <span>Total Payable:</span>
-                  <span style={{ color: "#0f3460" }}>${totalAmount}.00</span>
+                  <span style={{ color: "#0f3460" }}>₹{totalAmount}.00</span>
                 </div>
               </Card>
             </Col>

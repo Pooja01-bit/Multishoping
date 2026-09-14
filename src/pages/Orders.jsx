@@ -49,17 +49,17 @@ const Orders = () => {
                 .map(
                   (item) => `
                 <tr>
-                  <td>${item.productName}</td>
-                  <td>${item.qty}</td>
-                  <td>$${item.price}.00</td>
-                  <td>$${item.price * item.qty}.00</td>
+                  <td>₹{item.productName}</td>
+                  <td>₹{item.qty}</td>
+                  <td>₹${item.price}.00</td>
+                  <td>₹${item.price * item.qty}.00</td>
                 </tr>
               `
                 )
                 .join("")}
             </tbody>
           </table>
-          <div class="total">Total Paid: $${order.totalAmount}.00</div>
+          <div class="total">Total Paid: ₹${order.totalAmount}.00</div>
           <script>
             window.onload = function() { window.print(); }
           </script>
@@ -145,7 +145,7 @@ const Orders = () => {
                     Payment: <strong>{order.paymentMethod}</strong>
                   </small>
                   <div className="h5 fw-bold mb-0" style={{ color: "#0f3460" }}>
-                    Total: ${order.totalAmount}.00
+                    Total: ₹{order.totalAmount}.00
                   </div>
                 </div>
               </Card>

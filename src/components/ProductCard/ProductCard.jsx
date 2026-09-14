@@ -84,7 +84,7 @@ const ProductCard = ({ title, productItem }) => {
           </div>
 
           <div className="d-flex align-items-center justify-content-between mb-2">
-            <h4 className="fw-bold text-dark mb-0">${productItem.price}.00</h4>
+            <h4 className="fw-bold text-dark mb-0">₹{productItem.price}.00</h4>
             <button
               aria-label="Add to cart"
               className="add btn btn-sm btn-outline-primary rounded-circle"
