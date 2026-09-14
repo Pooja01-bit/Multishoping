@@ -65,7 +65,7 @@ const Wishlist = () => {
                           {item.productName}
                         </Card.Title>
                         <h4 className="fw-bold my-2" style={{ color: "#0f3460" }}>
-                          ${item.price}.00
+                          Rs. {item.price}.00
                         </h4>
                       </div>
 

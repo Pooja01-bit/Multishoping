@@ -20,7 +20,7 @@ const OrderSuccess = () => {
                   className="mx-auto mb-3 d-flex align-items-center justify-content-center bg-success text-white rounded-circle"
                   style={{ width: "70px", height: "70px", fontSize: "32px" }}
                 >
-                  ?
+                  <i className="fa-solid fa-check"></i>
                 </div>
                 <h2 style={{ color: "#0f3460" }} className="fw-bold">
                   Thank You For Your Order!
@@ -68,7 +68,7 @@ const OrderSuccess = () => {
                         <tr key={item.id}>
                           <td>{item.productName}</td>
                           <td>{item.qty}</td>
-                          <td className="text-end">₹{item.price * item.qty}.00</td>
+                          <td className="text-end">Rs. {item.price * item.qty}.00</td>
                         </tr>
                       ))}
                     </tbody>

@@ -82,7 +82,7 @@ const Shop = () => {
           <Row className="g-3 align-items-center bg-white p-3 rounded-3 shadow-sm mb-4">
             <Col md={6}>
               <Form.Label className="fw-semibold mb-1">
-                Filter by Max Price: <strong>₹{maxPrice}</strong>
+                Filter by Max Price: <strong>Rs. {maxPrice}</strong>
               </Form.Label>
               <Form.Range
                 min={50}
