@@ -41,13 +41,11 @@ const NavBar = () => {
         className={isFixed ? "navbar fixed" : "navbar"}
       >
         <Container className="navbar-container">
-          <Navbar.Brand as={Link} to="/">
-            <img
-              src="/MultiMart.png"
-              alt="Multimart Logo"
-              className="navbar-logo"
-              style={{ height: "45px", objectFit: "contain" }}
-            />
+          <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
+            <i className="fa-solid fa-bag-shopping me-2 fs-3" style={{ color: "#0f3460" }}></i>
+            <span className="fw-bold fs-4 text-dark" style={{ letterSpacing: "-0.5px" }}>
+              Multi<span style={{ color: "#0f3460" }}>Shop</span>
+            </span>
           </Navbar.Brand>
 
           <div className="d-flex align-items-center me-2">

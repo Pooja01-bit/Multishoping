@@ -3,18 +3,35 @@
     height: 200px !important;
     object-fit: contain;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.product img:hover {
+    transform: scale(1.05);
+}
+
+.product-card-wrapper {
+    transition: all 0.3s ease;
+    border-radius: 12px !important;
+}
+
+.product-card-wrapper:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(15, 52, 96, 0.12) !important;
 }
 
 .discount {
     position: absolute;
     top: 0;
     left: 0;
-    background: #0f3460;
-    padding: 3px 10px;
-    font-size: 12px;
-    border-radius: 50px;
+    background: linear-gradient(135deg, #e63946 0%, #d62828 100%) !important;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 20px;
     color: #fff;
     margin: 10px;
+    box-shadow: 0 4px 8px rgba(230, 57, 70, 0.3);
 }
 
 .product {
